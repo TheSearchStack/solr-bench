@@ -13,6 +13,7 @@ If running on GCP, spin up a coordinator VM where this suite will run from. Make
 The VM should have the following:
 * Maven and other tools for building `apt install wget unzip zip ant ivy lsof git netcat make openjdk-11-jdk maven jq` (for Ubuntu/Debian) or `sudo yum install wget unzip zip ant ivy lsof git nc make java-11-openjdk-devel maven jq` (for Redhat/CentOS/Fedora)
 * Terraform. `wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip; sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin`
+* Vagrant. Ensure that virtualization is enabled in your BIOS. Install the pre-requisites: `sudo yum install VirtualBox vagrant ansible`. Run `VBoxManage --version` to make sure VirtualBox is installed properly (it may prompt you to install kernel drivers, just follow as suggested there). To adjust the instance memory, edit the vagrant/Vagrant file.
 
 ### Running the suite
 
