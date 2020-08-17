@@ -14,7 +14,7 @@
         "solr_disk_type"  : "pd-ssd",
         "tags" : ["benchmarking", "solr", "temp"],
         "public_key_path" : "id_rsa.pub",
-        "user" : "solruser"
+        "user" : "vagrant"
     }
   },
   "repository": {

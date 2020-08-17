@@ -3,7 +3,7 @@
   become: yes
   vars:
     zk:
-      version: 3.6.1
+      version: "{{zk_version}}"
       #mirror: http://www-us.apache.org/dist
       mirror: https://downloads.apache.org
       dataDir: /tmp/zookeeper
@@ -18,14 +18,14 @@
     environment:
       JAVA_HOME: /opt/jdk1.8.0_241
   - name: Setup Java Home
-    shell: "echo 'export JAVA_HOME=/opt/jdk1.8.0_241; export PATH=$PATH:$JAVA_HOME/bin' >> /home/vagrant/.bashrc"
+    shell: "echo {{zk_version}}; echo 'export JAVA_HOME=/opt/jdk1.8.0_241; export PATH=$PATH:$JAVA_HOME/bin' >> /home/vagrant/.bashrc"
   - name: Zookeeper | Setting internal variable
     set_fact: zk_name="zookeeper-{{zk.version}}"
   - name: Zookeeper | Setting internal variable
     set_fact: zk_dir="{{zk.installDir}}/apache-{{zk_name}}-bin"
   - name: Zookeeper | Ensure Zookeeper tar is downloaded
     unarchive:
-      src: "files/apache-zookeeper-3.6.1-bin.tar.gz"
+      src: "files/apache-zookeeper-{{zk.version}}-bin.tar.gz"
       dest: "/opt"
   # Config and start Zookeeper
   - name: ZooKeeper | Ensure zoo.conf is present
